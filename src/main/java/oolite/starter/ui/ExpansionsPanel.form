@@ -258,6 +258,7 @@
     </Container>
     <Container class="javax.swing.JSplitPane" name="jSplitPane1">
       <Properties>
+        <Property name="dividerSize" type="int" value="7"/>
         <Property name="resizeWeight" type="double" value="0.5"/>
         <Property name="oneTouchExpandable" type="boolean" value="true"/>
       </Properties>
@@ -290,13 +291,13 @@
                     </Column>
                   </Table>
                 </Property>
+                <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="default"/>
+                </Property>
                 <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
                   <JTableSelectionModel selectionMode="0"/>
                 </Property>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new MyJTable()"/>
-              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

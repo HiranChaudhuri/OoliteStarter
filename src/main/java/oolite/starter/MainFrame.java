@@ -248,16 +248,26 @@ public class MainFrame extends javax.swing.JFrame {
                         newSplash = null;
                     }
 
-                    if (mf.configuration.getActiveInstallation() == null) {
-                        // point user to creating an active installation
+                    if (mf.configuration.getInstallations().isEmpty()) {
+                        mf.jTabbedPane1.setEnabledAt(0, false);
+                        mf.jTabbedPane1.setEnabledAt(1, false);
                         mf.jTabbedPane1.setSelectedIndex(2);
 
                         StringBuilder message = new StringBuilder("<html>");
                         message.append("<p>I see a lot of blanks on this here board... Kid, you gotta do something about it.</p>");
-                        message.append("<p>Have at least one active Oolite version. You need one. It's pretty much compulsory.<br/>");
-                        message.append("Hit the Add button and fill in the form, at least once to add Oolite versions.<br/>");
-                        message.append("Don't forget to select one of them, then hit the Activate button.</p>");
-                        message.append("<p>Then you can juggle OXPs or start the game. And maybe touch the Save button once in a while.</p>");
+                        message.append("<p>Have at least one Oolite version. You need one. It's pretty much compulsory.<br/>");
+                        message.append("Hit the Scan or Add button and fill in the form, at least once to add Oolite versions.<br/>");
+                        message.append("</html>");
+
+                        MrGimlet.showMessage(mf, message.toString());
+                    } else if (mf.configuration.getActiveInstallation() == null) {
+                        // point user to creating an active installation
+                        mf.jTabbedPane1.setSelectedIndex(2);
+
+                        StringBuilder message = new StringBuilder("<html>");
+                        message.append("<p>Much better. But still I see a lot of blanks... Kid, now do something about it.</p>");
+                        message.append("<p>Selected one of your Oolite versions. Otherwise this app would not know what to do.<br/>");
+                        message.append("<p>Choose one from the list and click Select.<br/>");
                         message.append("</html>");
 
                         MrGimlet.showMessage(mf, message.toString());

@@ -156,6 +156,12 @@ public class ExpansionPanel extends javax.swing.JPanel implements PropertyChange
             } else {
                 spRequires.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("ScrollPane.border"));
             }
+
+            // check if we have nested OXPs.
+            if (data.isNested()) {
+                btDisable.setEnabled(false);
+            }
+            
         }
         validate();
         repaint();

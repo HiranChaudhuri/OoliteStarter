@@ -216,6 +216,23 @@ public class ExpansionsPanel extends javax.swing.JPanel implements Oolite.Oolite
                     }
                 });
             } else {
+                popupMenu.add(new AbstractAction("Show in FileSystem") {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        try {
+                            Desktop.getDesktop().browseFileDirectory(row.getLocalFile());
+                            return;
+                        } catch (UnsupportedOperationException e) {
+                            log.warn("Could not open file", e);
+                        }
+                        try {
+                            Desktop.getDesktop().open(row.getLocalFile());
+                            return;
+                        } catch (Exception e) {
+                            log.warn("Could not open file", e);
+                        }
+                    }
+                });
                 if (!row.isNested()) {
                     if (row.isEnabled()) {
                         popupMenu.add(new AbstractAction("Disable") {
